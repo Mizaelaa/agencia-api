@@ -55,3 +55,7 @@ Execute o projeto com Maven instalado:
 mvn spring-boot:run
 
 
+### Mizaela e Aline 
+
+🔗 [Mizaelaa](https://github.com/Mizaelaa)  
+🔗 [23Aline](https://github.com/23Aline)
