@@ -1,0 +1,14 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/agencia_db
+    username: postgres
+    password: Mizaela1
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  application:
+    name: agencia-api
+
+server:
+  port: 8080
