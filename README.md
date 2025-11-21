@@ -46,16 +46,21 @@ Clone o repositório:
 
 ```bash
 git clone https://github.com/Mizaelaa/agencia-api.git
+```
 
 Entre na pasta:
 
+```bash
 cd agencia-api
+```
 
 Execute o projeto com Maven instalado:
-mvn spring-boot:run
 
+```bash
+mvn spring-boot:run
+```
 
 ### Mizaela e Aline 
 
-🔗 [Mizaelaa](https://github.com/Mizaelaa)  
-🔗 [23Aline](https://github.com/23Aline)
+🔗 [Mizaela](https://github.com/Mizaelaa)  
+🔗 [Aline](https://github.com/23Aline)
