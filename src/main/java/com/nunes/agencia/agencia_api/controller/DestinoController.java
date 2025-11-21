@@ -1,7 +1,7 @@
 package com.nunes.agencia.agencia_api.controller;
 
 import com.nunes.agencia.agencia_api.model.Destino;
-import com.nunes.agencia.agencia_api.repository.DestinoRepository;
+import com.nunes.agencia.agencia_api.service.DestinoService;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
@@ -9,19 +9,26 @@ import java.util.List;
 @RequestMapping("/destinos")
 public class DestinoController {
 
-    private final DestinoRepository repository;
 
-    public DestinoController(DestinoRepository repository) {
-        this.repository = repository;
-    }
+private final DestinoService destinoService;
 
-    @GetMapping
-    public List<Destino> listar() {
-        return repository.findAll();
-    }
+public DestinoController(DestinoService destinoService) {
+    this.destinoService = destinoService;
+}
 
-    @PostMapping
-    public Destino salvar(@RequestBody Destino destino) {
-        return repository.save(destino);
-    }
+@GetMapping
+public List<Destino> listarTodos() {
+    return destinoService.listarTodos();
+}
+
+@PostMapping
+public Destino salvar(@RequestBody Destino destino) {
+    return destinoService.salvar(destino);
+}
+
+@DeleteMapping("/{id}")
+public void deletar(@PathVariable Long id) {
+    destinoService.deletar(id);
+}
+
 }
