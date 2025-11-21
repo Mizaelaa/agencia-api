@@ -13,6 +13,7 @@ import org.springframework.security.web.SecurityFilterChain;
 @Configuration
 public class SecurityConfig {
 
+
 private final UsuarioService usuarioService;
 
 public SecurityConfig(UsuarioService usuarioService) {
@@ -28,18 +29,40 @@ public PasswordEncoder passwordEncoder() {
 public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 
     http
-            .csrf().disable()
-            .authorizeHttpRequests()
-            .requestMatchers("/destinos/**").hasAnyRole("USER", "ADMIN")
-            .requestMatchers("/pacotes/**").hasAnyRole("USER", "ADMIN")
-            .requestMatchers("/hoteis/**").hasAnyRole("USER", "ADMIN")
-            .requestMatchers("/atividades/**").hasAnyRole("USER", "ADMIN")
+        .csrf(csrf -> csrf.disable())
+        .authorizeHttpRequests(auth -> auth
+            // libera tudo que seu front precisa
+            .requestMatchers(
+                "/",             // raiz
+                "/index.html",   // sua página
+                "/script.js",    // seu JS
+                "/css/**",
+                "/js/**",
+                "/images/**",
+                "/login"         // página de login do Spring
+            ).permitAll()
+
+            // protege suas APIs
+            .requestMatchers(
+                "/api/destinos/**",
+                "/api/pacotes/**",
+                "/api/hoteis/**",
+                "/api/atividades/**"
+            ).hasAnyRole("USER", "ADMIN")
+
             .anyRequest().authenticated()
-            .and()
-            .httpBasic();
+        )
+
+        // usa o login padrão do Spring (não o /login custom)
+        .formLogin(form -> form
+            .permitAll()
+        )
+
+        .logout(logout -> logout.permitAll());
 
     return http.build();
 }
+
 
 @Bean
 public AuthenticationManager authManager(HttpSecurity http) throws Exception {
