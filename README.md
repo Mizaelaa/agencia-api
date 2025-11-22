@@ -12,7 +12,9 @@ Ela fornece endpoints REST protegidos por autenticação via **usuários armazen
 - Login com usuário e senha cadastrados no PostgreSQL  
 - Controle de acesso com **Spring Security**  
 - Diferentes permissões baseadas em perfis (`ROLE_USER`, `ROLE_ADMIN`)  
-- Redirecionamento automático para o painel após login  
+- Redirecionamento automático para o painel após login
+- user= admin
+- password = admin123
 
 
 ## 🧱 Tecnologias utilizadas  
