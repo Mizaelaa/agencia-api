@@ -55,6 +55,7 @@ public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 
         // usa o login padrão do Spring (não o /login custom)
         .formLogin(form -> form
+            .defaultSuccessUrl("/", true)
             .permitAll()
         )
 
