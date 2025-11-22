@@ -44,21 +44,27 @@ substitua pelas credenciais da sua máquina:
 
 ```properties
 spring.application.name=agencia-api
+```
 
 ## Configuração do banco PostgreSQL
+
+```bash
 spring.datasource.url=jdbc:postgresql://localhost:5432/agencia_db
 spring.datasource.username=SEU_USUARIO_DO_POSTGRES
 spring.datasource.password=SUA_SENHA_DO_POSTGRES
+```
 
 ## Configurações JPA / Hibernate
+
+```bash
 spring.jpa.hibernate.ddl-auto=update
 spring.jpa.show-sql=true
 spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
-
+```
 
 ### Como executar
 
-### Clone o repositório:
+## Clone o repositório:
 
 ```bash
 git clone https://github.com/Mizaelaa/agencia-api.git
